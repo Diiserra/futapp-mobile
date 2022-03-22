@@ -1,75 +1,79 @@
 import React from 'react'
-import { View, StyleSheet, Text, ImageBackground, TouchableOpacity} from 'react-native'
-
+import { View, StyleSheet, Text, ImageBackground, Image, TouchableOpacity} from 'react-native'
 
 export function WelcomePage() {
     return (
-       <View style ={styles.container}>
-           <View style={styles.containerLogo}>
-               <ImageBackground source={require('../../assets/welcome.png')} style={styles.imageLogo} />
-           </View>
-           <View style={styles.containerButtons}>
-               <TouchableOpacity style={{backgroundColor: '#FFD300', ...styles.button}}>
-                   <Text style={styles.textButton}>Cadastre-se</Text>
-               </TouchableOpacity>
-               <Text>||</Text>
-               <TouchableOpacity style={{ borderWidth: 1, borderColor: '#FFD300' ,...styles.button}}>
-                   <Text style={styles.textButton}>Entre</Text>
-               </TouchableOpacity>
-           </View>
-           <Text style={styles.textFooter}>By Diiserra</Text>
-       </View> 
+        <ImageBackground source={require('../../assets/back.png')} style={styles.container} >
+            <View style={styles.welcomeForm}>
+                <View style={styles.textContainer}>
+                    <View style={styles.tittleContainer}>
+                        <Image style={{width: 52, height: 68}} source={require('../../assets/logo.png')} resizeMode='contain' />
+                        <Text style={styles.tittle}>FUTAPP</Text>
+                    </View>    
+                    <Text style={styles.description}>Bem vindo ao FutApp. Cadastre-se agora e tenha o controle dos seus jogos na palma da mão.</Text>
+                </View>
+                <TouchableOpacity style={styles.startedButton}>
+                    <Text style={styles.textButton}>Começar</Text>
+                </TouchableOpacity>
+                <Text style={{color: '#666666'}}>By Diiserra</Text>
+            </View>
+        </ImageBackground>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, 
-    },
-
-    containerLogo: {
-        flex: 2.5,
-        backgroundColor: '#FFD300',
-        justifyContent: 'center',
+        flex: 1,
+        justifyContent: 'flex-end',
         alignItems: 'center'
     },
 
-    containerButtons: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center'
+    welcomeForm: {
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        width: '100%',
+        height: '45%',
     },
 
-    imageLogo: {
-        flex: 1,
-        width: '90%',
-        height: '100%',
-        justifyContent: 'flex-end'
-    },
-
-    textLogo: {
-        fontSize: 24,
-        fontWeight: '500'
-    },
-
-    button: {
+    textContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        width: 140,
-        height: 52,
-        borderRadius: 6,
-        margin: 6
+        width: '90%'
+    },
+
+    tittleContainer: {
+        flexDirection: 'row', 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        marginBottom: 22
+    },
+
+    tittle: {
+        color: "#FFFFFF",
+        fontSize: 38,
+        fontWeight: '700',
+        fontStyle: 'italic',
+        marginLeft: 12
+    },
+
+    description: {
+        fontSize: 14,
+        fontWeight: '400',
+        color: '#919191',
+        textAlign: 'center'
+    },
+
+    startedButton: {
+        width: '90%',
+        height: 68,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#FFD300',
+        borderRadius: 22
     },
 
     textButton: {
-        fontSize: 16,
-        fontWeight: '500'
-    }, 
-
-    textFooter: { 
-        alignSelf: 'center', 
-        fontSize: 16, 
-        color: '#d0d0d0',
-        margin: 8}
+        fontSize: 24,
+        fontWeight: '600'
+    }
 });
